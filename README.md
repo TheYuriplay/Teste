@@ -1,1 +1,5 @@
-Conducta CRM Demo v0.4
+# ConductaCRM
+
+Estrutura inicial do projeto — Sprint 0.5.
+
+See docs/ for further information.
