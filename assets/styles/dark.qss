@@ -1,13 +1,23 @@
-/* Basic dark QSS to get started */
+/* Dark QSS extended for cards and toolbar */
 QWidget {
   background-color: #121212;
   color: #e0e0e0;
   font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial;
 }
 
-QListWidget {
+QToolBar {
+  background: #181818;
+  spacing: 8px;
+}
+
+#appTitle {
+  font-weight: 600;
+  margin: 4px 8px;
+}
+
+#sidebar {
   background-color: #1e1e1e;
-  border: none;
+  border-right: 1px solid #222;
 }
 
 QListWidget::item:selected {
@@ -15,7 +25,37 @@ QListWidget::item:selected {
   color: white;
 }
 
-QLabel#title {
-  font-size: 18pt;
-  font-weight: 600;
+#contentWrapper {
+  background-color: transparent;
+}
+
+#pageHeader {
+  font-size: 20pt;
+  font-weight: 700;
+}
+
+#statCard {
+  background-color: #1b1b1b;
+  border: 1px solid #252525;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+#statTitle {
+  color: #9fbff9;
+  font-size: 9pt;
+}
+
+#statValue {
+  color: #ffffff;
+  font-size: 13pt;
+  font-weight: 700;
+}
+
+#placeholder {
+  background-color: #141414;
+  border: 1px dashed #2a2a2a;
+  border-radius: 4px;
+  padding: 20px;
+  color: #9aa3ad;
 }

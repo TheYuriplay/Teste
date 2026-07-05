@@ -18,6 +18,11 @@ class Application:
 
         # Database
         self.engine = get_engine(self.project_root)
+
+        # Import models so that SQLAlchemy Base has metadata before creating tables
+        # Models are imported for their side-effects (declarative base registration)
+        import app.models  # noqa: F401
+
         init_db(self.engine)
 
     def _create_qapp(self):
