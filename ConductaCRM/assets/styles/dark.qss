@@ -1,0 +1,21 @@
+/* Basic dark QSS to get started */
+QWidget {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial;
+}
+
+QListWidget {
+  background-color: #1e1e1e;
+  border: none;
+}
+
+QListWidget::item:selected {
+  background-color: #2a82da;
+  color: white;
+}
+
+QLabel#title {
+  font-size: 18pt;
+  font-weight: 600;
+}

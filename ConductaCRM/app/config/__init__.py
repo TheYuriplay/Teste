@@ -1,0 +1,3 @@
+# App configuration
+
+DATABASE_URL = "sqlite:///database/app.db"
