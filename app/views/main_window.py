@@ -18,6 +18,8 @@ from PySide6.QtWidgets import (
 
 from app.core.router import Router
 from modules.dashboard.view import DashboardPage
+from app.views.empresas_list import EmpresasList
+from app.views.clientes_list import ClientesList
 
 
 class MainWindow(QMainWindow):
@@ -67,10 +69,10 @@ class MainWindow(QMainWindow):
         # Register views
         self.dashboard = DashboardPage()
         self.router.register("dashboard", self.dashboard)
+        self.router.register("empresas", EmpresasList())
+        self.router.register("clientes", ClientesList())
 
         # Add some placeholders for other routes
-        self.router.register("empresas", QLabel("Empresas - em construção"))
-        self.router.register("clientes", QLabel("Clientes - em construção"))
         self.router.register("ordens_servico", QLabel("Ordens de Serviço - em construção"))
         self.router.register("financeiro", QLabel("Financeiro - em construção"))
         self.router.register("usuarios", QLabel("Usuários - em construção"))

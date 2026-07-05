@@ -1,3 +1,4 @@
+"""Application bootstrap with minimal auth flow."""
 import logging
 from pathlib import Path
 import sys
@@ -7,6 +8,8 @@ from PySide6.QtWidgets import QApplication
 from app.views.main_window import MainWindow
 from app.database.connection import get_engine
 from app.database.base import init_db
+from app.services import auth_service
+from app.views.login_dialog import LoginDialog
 
 
 class Application:
@@ -15,6 +18,7 @@ class Application:
         self.logger = logging.getLogger("ConductaCRM")
         logging.basicConfig(level=logging.INFO)
         self._qapp = None
+        self.current_user = None
 
         # Database
         self.engine = get_engine(self.project_root)
@@ -35,6 +39,20 @@ class Application:
 
     def run(self) -> int:
         self._create_qapp()
+
+        # Ensure default admin exists
+        auth_service.ensure_default_admin()
+
+        # Show login dialog
+        login = LoginDialog()
+        if login.exec() != 1:
+            # user cancelled
+            return 0
+        user = login.user_authenticated()
+        if not user:
+            return 0
+        self.current_user = user
+
         window = MainWindow()
         window.show()
         return self._qapp.exec()

@@ -1,15 +1,10 @@
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QStackedWidget
 from typing import Dict
 
 
 class Router:
-    """Simple router managing a QStackedWidget and registered views.
-
-    Usage:
-        router = Router(stacked_widget)
-        router.register("dashboard", widget)
-        router.navigate("dashboard")
-    """
+    """Simple router managing a QStackedWidget and registered views."""
 
     def __init__(self, stacked: QStackedWidget):
         self._stacked = stacked
